@@ -25,7 +25,7 @@ You'll do Cowork first so you get a productivity win early and get comfortable w
 
 ---
 
-## Step 0: Get the Claude Starter Kit by mmjclayton
+## Step 0: Get the Claude Starter Kit by mmjclayton (if you're reading this on Github, you're already here! Jump to bullet number 2 below.)
 
 1. Go to https://github.com/mmjclayton/claude-starter-kit
 2. Click the green Code button, then Download ZIP

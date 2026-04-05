@@ -30,7 +30,7 @@ When you start a Cowork chat, Claude will ask for access to a folder on your Mac
 
 **Check your model:** at the bottom of the chat input box, you'll see the model name (e.g. "Sonnet 4.6"). Click it to switch. Stick with **Sonnet** for this walkthrough - it's fast and plenty capable for building skills. Switch to **Opus** later when you're tackling heavier work like strategy, analysis, or long documents. See the "Which model should you use?" section in the README if you skipped it.
 
-## Step 2: Install the prompt-builder skill
+## Step 2: Install the prompt-builder skill (pre-read)
 
 You're going to install `prompt-builder` using the Claude desktop app's built-in skills manager. This is the cleanest way to add a skill - no file paths, no terminal.
 
@@ -46,6 +46,8 @@ Cowork is cautious by design. Every time it wants to do something on your Mac fo
 If something fails (e.g. "Failed to fetch..."), it's usually because a permission hasn't been granted yet. Read the popup, allow what it's asking for, and tell Cowork to try again.
 
 General rule: if Cowork is asking for access to a folder or domain that matches what you just asked it to do, allow it. If a popup appears out of nowhere asking for something unrelated, say Deny and check what's happening.
+
+As you may have already guessed, you actually already have the prompt builder skill.md file on your machine if you downloaded the whole folder from Github earlier. That's OK. It's good to get used to asking Claude to do things for you, even if it is technically a double up this one time.
 
 ### 2a. Get the SKILL.md file onto your Mac
 
@@ -67,6 +69,8 @@ If the download fails, tell Cowork: `Try again.` It usually works on the second 
 4. Select `prompt-builder-SKILL.md` from your Desktop.
 
 Claude imports the file and installs it in the right place for you. This is how you'll install every skill going forward - remember this flow.
+
+Remember, you do have the prompt builder file in the ZIP folder you downloaded earlier, if you get really stuck. 
 
 ### 2c. Start a new Cowork chat
 

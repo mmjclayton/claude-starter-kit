@@ -543,6 +543,13 @@ Verify: A browser tab opens with a working Snake game. Use arrow keys to move, s
 
 **Step 4: Iterate with Claude Code**
 
+if you need to remember how to get to Claude code - open a Terminal and put in:
+
+```bash
+mkdir -p ~/code/snake && cd ~/code/snake
+claude
+```
+
 Run `claude` again in the same folder and try:
 
 ```
@@ -558,3 +565,9 @@ Claude Code will edit the file for you. Refresh your browser tab to see the chan
 ### Recommended next action
 
 Push the Snake project to GitHub (`git init && git add . && git commit -m "snake game" && gh repo create snake --public --source=. --remote=origin --push`), then pick a real problem you want to solve and tell Claude Code to build it. You've now got both Claude Cowork (for everyday work and custom skills) and Claude Code (for coding and terminal-based workflows) set up. Use Cowork when you'd usually open a chat; use Claude Code when you want Claude working directly in your files and Terminal.
+
+If you're stuck for what to do, remember, Claude Cowork is your friend. You could use /prompt-builder to write a prompt to review everything you've just set up, dropping in all of these files for review, and to suggest next action. The world is your oyster!
+
+The best thing you can do is keep playing around. Try things. Ask Claude (or whatever AI models you like) what to do next. Keep giving it context of what you've done so it can help.
+
+Be good!

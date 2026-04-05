@@ -378,11 +378,11 @@ Get Matt's starter kit onto your Mac. This is your first real Git clone (downloa
 ```bash
 mkdir -p ~/dev
 cd ~/dev
-git clone https://github.com/[MATT-GITHUB-USERNAME]/claude-starter-kit.git
+git clone https://github.com/mmjclayton/claude-starter-kit.git
 cd claude-starter-kit
 ```
 
-(Replace `[MATT-GITHUB-USERNAME]` with the GitHub username Matt gave you. `git clone` downloads a copy of the repo into a new folder.)
+(Replace `mmjclayton` with the GitHub username Matt gave you. `git clone` downloads a copy of the repo into a new folder.)
 
 Verify:
 

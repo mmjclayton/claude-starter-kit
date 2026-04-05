@@ -1,6 +1,8 @@
 # Claude Code Setup Guide (macOS)
 
-From zero to a working local development environment with Claude Code.
+Zero to Claude Code running on your Mac, start to finish.
+
+**Before you start:** you should already have a Claude Pro or Max subscription and the Claude desktop app installed (per Step 1 of the README), and you should have built at least one custom skill in Cowork via `build-your-first-skill.md`. If not, do those first - they're quicker wins and get you comfortable with Claude before you open Terminal.
 
 **A note on language:** this guide explains every technical term the first time it shows up. If you see a word in brackets after an acronym, that's the plain-English version. You don't need to memorise any of it - just follow the steps.
 
@@ -21,31 +23,7 @@ You don't need to struggle alone with any of this. If anything is unclear, unexp
 
 ---
 
-### Phase 1: Get Claude
-
-Before anything else, set up your Claude account. Once you have it, you can use Claude as your helper throughout the rest of this guide - asking it to explain commands, troubleshoot errors, or walk you through anything that looks unfamiliar.
-
-**Step 1: Create a Claude account**
-
-In a web browser, go to https://claude.ai/signup and create an account. If you already have one, go to https://claude.ai/login and sign in. Verify your email if Claude asks you to.
-
-**Step 2: Subscribe to Claude Pro or Max**
-
-Claude Code (the tool we'll install later) runs against your Claude subscription. You need a paid plan - either Pro or Max. Both include Claude Code.
-
-Go to https://claude.ai/settings/billing and subscribe. Pro is enough to start. Max gives you significantly more Claude Code usage if you plan to use it heavily.
-
-**Step 3: Try it out**
-
-Ask Claude something simple to confirm it's working. Go to https://claude.ai, type a message like `Hi, I'm about to set up my Mac to work with Claude Code - any tips?` and press Enter.
-
-Verify: Claude replies. You now have a working helper you can lean on for the rest of this guide.
-
-**Phase checkpoint:** You have an active Claude account with a Pro or Max subscription, and you've sent at least one message on claude.ai. Keep this tab open - you'll use it whenever you get stuck in later phases.
-
----
-
-### Phase 2: Terminal and Xcode Command Line Tools
+### Phase 1: Terminal and Xcode Command Line Tools
 
 Get the Terminal app open and install Apple's base developer toolkit (a bundle of tools that Git, Homebrew, and other things we'll install depend on).
 
@@ -91,7 +69,7 @@ Troubleshooting:
 
 ---
 
-### Phase 3: Homebrew
+### Phase 2: Homebrew
 
 Homebrew is macOS's package manager - a tool that installs other tools for you. Instead of hunting down installers on websites, you type `brew install <thing>` and it handles the rest.
 
@@ -109,7 +87,7 @@ You'll be prompted for your Mac password (the one you use to log into your compu
 
 PATH is a list your computer keeps of where to look for commands you type. We need to tell it where Homebrew lives, otherwise when you type `brew` later, your Mac won't find it. This is a once-off setup.
 
-At the end of the install, Homebrew prints two "Next steps" commands. Apple Silicon and Intel Macs need different commands here - use the one that matches your chip from Phase 2.
+At the end of the install, Homebrew prints two "Next steps" commands. Apple Silicon and Intel Macs need different commands here - use the one that matches your chip from Phase 1.
 
 Apple Silicon (arm64):
 
@@ -143,7 +121,7 @@ Troubleshooting:
 
 ---
 
-### Phase 4: Git and GitHub
+### Phase 3: Git and GitHub
 
 Git is version control - it tracks every change you make to your files, like a super-powered undo history. GitHub is a website that stores Git projects online so you (and others) can access them from anywhere. We'll install Git, create a GitHub account, and connect them using the GitHub CLI (Command Line Interface - GitHub's official tool for working with GitHub from Terminal).
 
@@ -239,7 +217,7 @@ Troubleshooting:
 
 ---
 
-### Phase 5: Node.js (via nvm)
+### Phase 4: Node.js (via nvm)
 
 Node.js is a program that lets your Mac run code written in JavaScript outside of a web browser. Claude Code itself is written in JavaScript and runs on Node.js, so we need to install it.
 
@@ -291,7 +269,7 @@ You should see versions like `v22.x.x` (node) and `10.x.x` (npm - Node Package M
 
 ---
 
-### Phase 6: Code Editor (VS Code)
+### Phase 5: Code Editor (VS Code)
 
 A code editor is like a souped-up Word document for writing code - it has syntax highlighting, file browsing, and a built-in terminal. VS Code (Visual Studio Code, made by Microsoft) is the most popular one and works well with Claude Code.
 
@@ -324,9 +302,9 @@ Troubleshooting:
 
 ---
 
-### Phase 7: Install Claude Code
+### Phase 6: Install Claude Code
 
-Install Claude Code and connect it to the Claude account you set up in Phase 1.
+Install Claude Code and connect it to your Claude account (the one you set up in Step 1 of the README).
 
 **Step 1: Install Claude Code**
 
@@ -363,26 +341,38 @@ Verify: After auth, Claude Code drops you into an interactive prompt showing you
 Troubleshooting:
 - Browser doesn't open - copy the URL Claude Code prints in the terminal and paste it into your browser manually.
 - "You need an active subscription" - your Pro/Max plan isn't active yet. Check https://claude.ai/settings/billing.
-- Logged into the wrong Claude account - run `claude /logout` then `claude` again to re-auth.
+- Logged into the wrong Claude account - run `claude` to start a session, type `/logout` inside it, then start `claude` again to re-auth.
 
-**Phase checkpoint:** Run `claude` from the terminal. You should see the Claude Code interactive prompt. Type `/exit`.
+**Step 3: Pick your model**
+
+Claude Code lets you switch between models the same way Cowork does. Inside a `claude` session, type:
+
+```
+/model
+```
+
+You'll see a list. For day-to-day work, pick **Sonnet 4.6** - it's fast and handles most tasks well. Switch to **Opus 4.6** when you're doing heavy reasoning, complex refactors, or long analysis tasks. Haiku is for quick, simple stuff. You can change model any time mid-session with `/model`.
+
+If you skipped it, the "Which model should you use?" section in the README explains the trade-offs.
+
+**Phase checkpoint:** Run `claude` from the terminal. You should see the Claude Code interactive prompt. Type `/model` to confirm you can see the model list, then `/exit`.
 
 ---
 
-### Phase 8: Clone the Starter Kit
+### Phase 7: Clone the Starter Kit
 
-Get Matt's starter kit onto your Mac. This is your first real Git clone (downloading a repo from GitHub) and it delivers a CLAUDE.md template and a pre-built skill, all in one command.
+Get Matt's starter kit onto your Mac. This is your first real Git clone (downloading a repo from GitHub). It gives you a local copy of the starter kit files, including the CLAUDE.md template you'll install in this phase.
 
 **Step 1: Clone the kit**
 
 ```bash
-mkdir -p ~/dev
-cd ~/dev
+mkdir -p ~/code
+cd ~/code
 git clone https://github.com/mmjclayton/claude-starter-kit.git
 cd claude-starter-kit
 ```
 
-(Replace `mmjclayton` with the GitHub username Matt gave you. `git clone` downloads a copy of the repo into a new folder.)
+(`code` is just a suggested name for where you'll keep your projects - you can call it whatever you like, just use the same name in the later phases. `git clone` downloads a copy of the repo into a new folder.)
 
 Verify:
 
@@ -390,7 +380,7 @@ Verify:
 ls
 ```
 
-You should see `README.md`, `CLAUDE.md.template`, `first-10-prompts.md`, and a `skills/` folder.
+You should see `README.md`, `claude-code-setup-guide.md`, `CLAUDE.md`, `build-your-first-skill.md`, and a `skills/` folder.
 
 Troubleshooting:
 - "Repository not found" - double-check the GitHub username in the URL.
@@ -402,7 +392,7 @@ CLAUDE.md is a file that teaches Claude how you like to work. It's loaded automa
 
 ```bash
 mkdir -p ~/.claude
-cp CLAUDE.md.template ~/.claude/CLAUDE.md
+cp CLAUDE.md ~/.claude/CLAUDE.md
 code ~/.claude/CLAUDE.md
 ```
 
@@ -416,24 +406,7 @@ cat ~/.claude/CLAUDE.md
 
 (`cat` prints a file's contents to the screen.) You should see your filled-in file.
 
-**Step 3: Install the prompt-builder skill**
-
-A "skill" is a bundle of instructions that teaches Claude a specific workflow. This one helps you design high-quality prompts through a guided interview.
-
-```bash
-mkdir -p ~/.claude/skills
-cp -r skills/prompt-builder ~/.claude/skills/
-```
-
-Verify:
-
-```bash
-ls ~/.claude/skills/
-```
-
-You should see `prompt-builder` listed.
-
-**Step 4: Test that CLAUDE.md is working**
+**Step 3: Test that CLAUDE.md is working**
 
 ```bash
 claude
@@ -447,22 +420,24 @@ what do you know about how I like to work?
 
 Claude should echo back the key points from your CLAUDE.md (your name, role, tone preferences). If it doesn't, your file isn't in the right place - check it's at `~/.claude/CLAUDE.md` exactly. Type `/exit` when done.
 
-**Phase checkpoint:** You have a cloned starter kit, a personalised CLAUDE.md that Claude reads automatically, and the prompt-builder skill installed.
+(The starter kit also contains the `prompt-builder` skill files. You already installed that skill directly in Cowork during `build-your-first-skill.md` - you don't need to install it again from here.)
+
+**Phase checkpoint:** You have a cloned starter kit and a personalised CLAUDE.md that Claude reads automatically.
 
 ---
 
-### Phase 9: End-to-End Validation
+### Phase 8: End-to-End Validation
 
 Create a project, push it to GitHub, and run Claude Code against it.
 
 **Step 1: Create a project directory**
 
 ```bash
-mkdir -p ~/dev/hello-claude
-cd ~/dev/hello-claude
+mkdir -p ~/code/hello-claude
+cd ~/code/hello-claude
 ```
 
-Quick translation of what just happened: `mkdir` means "make directory" (create a folder), `cd` means "change directory" (move into that folder), and `~` is shorthand for your home folder (the one with your name on it in Finder). So you just made a folder called `hello-claude` inside a new `dev` folder in your home directory, and stepped into it.
+Quick translation of what just happened: `mkdir` means "make directory" (create a folder), `cd` means "change directory" (move into that folder), and `~` is shorthand for your home folder (the one with your name on it in Finder). So you just made a folder called `hello-claude` inside your `code` folder (created back in Phase 7) and stepped into it.
 
 **Step 2: Create a Git repo and add a file**
 
@@ -501,7 +476,7 @@ You should see one commit with your name and email. Press `q` to exit the log.
 
 **Step 4: Create a GitHub repo and push to it**
 
-"Pushing" means uploading your local commits to GitHub so the code lives online as well as on your Mac. The `gh` CLI you installed in Phase 4 does all of this in one command - it creates the repo on GitHub, connects it to your local folder, and pushes your code up:
+"Pushing" means uploading your local commits to GitHub so the code lives online as well as on your Mac. The `gh` CLI you installed in Phase 3 does all of this in one command - it creates the repo on GitHub, connects it to your local folder, and pushes your code up:
 
 ```bash
 gh repo create hello-claude --public --source=. --remote=origin --push
@@ -512,7 +487,7 @@ What this command does, piece by piece: creates a new public repo on GitHub call
 Verify: Run `gh repo view --web`. This opens the repo in your browser. You should see `README.md` and `index.js` listed.
 
 Troubleshooting:
-- "authentication required" - Phase 4 didn't complete properly. Run `gh auth login` again, making sure to pick "Yes" when asked about authenticating Git.
+- "authentication required" - Phase 3 didn't complete properly. Run `gh auth login` again, making sure to pick "Yes" when asked about authenticating Git.
 - "repository already exists" - you've already got a repo by that name on your GitHub account. Either delete it on github.com or pick a different name.
 
 **Step 5: Run Claude Code against the project**
@@ -535,14 +510,14 @@ Type `/exit` to leave.
 
 ---
 
-### Phase 10: Your First Real Project (Build Snake in 5 Minutes)
+### Phase 9: Your First Real Project (Build Snake in 5 Minutes)
 
 Prove the whole thing works by having Claude Code build a working game from a single prompt.
 
 **Step 1: Create a new project folder**
 
 ```bash
-mkdir -p ~/dev/snake && cd ~/dev/snake
+mkdir -p ~/code/snake && cd ~/code/snake
 claude
 ```
 
@@ -582,4 +557,4 @@ Claude Code will edit the file for you. Refresh your browser tab to see the chan
 
 ### Recommended next action
 
-Push the Snake project to GitHub (`git init && git add . && git commit -m "snake game" && gh repo create snake --public --source=. --remote=origin --push`), then pick a real problem you want to solve and tell Claude Code to build it.
+Push the Snake project to GitHub (`git init && git add . && git commit -m "snake game" && gh repo create snake --public --source=. --remote=origin --push`), then pick a real problem you want to solve and tell Claude Code to build it. You've now got both Claude Cowork (for everyday work and custom skills) and Claude Code (for coding and terminal-based workflows) set up. Use Cowork when you'd usually open a chat; use Claude Code when you want Claude working directly in your files and Terminal.

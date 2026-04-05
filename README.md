@@ -1,50 +1,103 @@
 # Claude Starter Kit
 
-A complete, step-by-step starter pack for getting up and running with Claude Code - designed for people who aren't developers and have never used a terminal before.
+A step-by-step starter pack for getting up and running with Claude on your Mac - designed for people who aren't developers and have never used a terminal before (or don't even know what Terminal means for now - that's OK!).
 
 ## Who this is for
 
-You have a Mac, you've heard Claude Code is powerful, and you want to use it properly - but you don't write code for a living and the usual developer docs feel like they're written in a foreign language. This kit walks you through everything from zero, in plain English, with nothing assumed.
+You want to get involved more in "AI" and start levelling up your skills. You have a Mac, you're paying for Claude (or about to), and you want to get the most out of it. You're not a developer and you've never written code, or not much of it at least. You want to see what all the fuss is about.  
 
-By the end you'll have:
+With this starter guide, you'll set up two tools, in this order:
 
-- A Claude account and the Claude desktop app installed
-- Claude Code running in your terminal
+1. **Claude Cowork first** - a mode inside the Claude desktop app where custom skills live. This is the fastest way to get real productivity wins. Installing a skill and building your own takes about 30 minutes, no terminal required.
+2. **Claude Code next** - a command line tool for doing more powerful work with Claude directly from your Mac's terminal. Takes about an hour to set up cleanly from scratch, and the guide walks you through it with every step explained in plain English.
+
+You'll do Cowork first so you get a productivity win early and get comfortable with Claude doing real work for you. Then you'll move onto Claude Code, where things get more powerful (you can start writing code, without having to know how to write code!)
+
+## By the end you'll have
+
+- A Claude account with Pro or Max
+- The Claude desktop app installed (home of Cowork)
+- The `prompt-builder` skill installed in Cowork which makes it easy to create amazing prompts for any purpose (and for any large language model like Claude, ChatGPT, Gemini - any and all of them)
+- Your own custom skill, built from scratch in about 15 minutes (Skills are a 'Claude' term at the time of writing - think of them as a saved prompt that you can rerun at any time).
+- Claude Code running in your terminal (so you can start building things with Claude Code)
 - A personalised `CLAUDE.md` file so Claude already knows how you work
-- The `prompt-builder` skill installed and working
-- Your own custom skill, built from scratch in about 15 minutes
-- Your first project pushed to GitHub
+- Your first coding project pushed to GitHub
 
-Total time: about 2 hours, comfortably.
+---
+
+## Step 0: Get the Claude Starter Kit by mmjclayton
+
+1. Go to https://github.com/mmjclayton/claude-starter-kit
+2. Click the green Code button, then Download ZIP
+3. Unzip it to your Desktop (or wherever you like), then open README.md - this is the file you're reading now, but by downloading the whole folder you'll have everything on your own machine
+
+## Step 1: Get Claude
+
+Before anything else, get your account and the desktop app.
+
+1. Go to https://claude.ai/signup and create an account (or sign in at https://claude.ai/login if you already have one).
+2. Subscribe to **Claude Pro or Max** at https://claude.ai/settings/billing. Pro is enough to start.
+3. Install the **Claude desktop app** from https://claude.ai/download. Drag it into Applications, launch it, and sign in with the account you just created.
+
+That's the prerequisite for everything else.
+
+### Which model should you use?
+
+Claude has a few models. For this kit:
+
+- **Claude Sonnet 4.6** - your default. Fast, smart, handles most work brilliantly. Use it for 90% of what you do.
+- **Claude Opus 4.6** - the heavyweight. Slower and uses more of your usage quota, but better at complex reasoning, strategy, long documents, and hard analysis. Switch to this when Sonnet's answer feels shallow or when the task really matters (a pitch deck review, a tricky business case, a gnarly bit of code).
+- **Claude Haiku 4.5** - the fastest and cheapest. Good for quick lookups and simple tasks. You generally won't need it for the workflows in this kit.
+
+**How to switch models in Claude Cowork:** in the desktop app, look for the model name at the bottom of the chat input box (it'll say something like "Sonnet 4.6"). Click it and pick a different model from the dropdown. You can switch any time, even mid-chat.
+
+**How to switch models in Claude Code:** type `/model` in the terminal and pick from the list. Same idea - switch any time.
+
+Default to Sonnet. Reach for Opus when you need more horsepower.
+
+### A note on permissions
+
+Cowork will ask your permission every time it wants to do something on your Mac for the first time - access a folder, download a file, run a command. You'll see Allow/Deny prompts throughout your chats. This is normal and intentional. The walkthrough flags when to expect them. General rule: if the ask matches what you just requested, allow it.
+
+### Triggering skills (quick reference)
+
+Once you've installed a skill, you can trigger it two ways in Cowork:
+
+- **Slash command (most reliable):** type `/` to see installed skills, or type the name directly, e.g. `/prompt-builder`.
+- **Natural language:** describe what you want and Cowork will match it to a skill based on the skill's description. Less reliable but more conversational.
+
+Same works in Claude Code with `/skill-name`.
+
+## Step 2: Build your first skill in Claude Cowork
+
+Open `build-your-first-skill.md`. It walks you through:
+
+- Opening Claude Cowork and granting folder access
+- Installing the `prompt-builder` skill via the **Customise > Skills > +** menu in the desktop app (the cleanest way to add any skill)
+- Handling permission prompts as they come up
+- Using `/prompt-builder` to design your own custom skill through a guided interview
+- Saving your skill, testing it (via slash command and natural language), and iterating on it
+
+Plan 30 minutes for your first one. By your third skill, you'll be building them in 10.
+
+## Step 3: Set up Claude Code
+
+Open `claude-code-setup-guide.md`. This is your next move after you've built at least one custom skill in Cowork.
+
+Claude Code is the command line version of Claude. It runs in your Mac's Terminal app and can do things Cowork can't - like kicking off longer-running tasks, writing and editing real code, and working inside projects you track with Git. Don't worry about any of those words yet - the setup guide explains every one of them in plain English, every command shown exactly as you'll type it.
+
+This is the longer path - about 90 minutes - and it's the first time you'll touch Terminal. There's a safety section at the top that explains exactly what is and isn't risky, and Claude is there with you the whole time to help if you get stuck.
+
+The guide covers: Terminal basics, Xcode Command Line Tools, Homebrew, Git and GitHub, Node.js, VS Code, Claude Code itself, picking your model with `/model`, a personalised `CLAUDE.md`, and a working Snake game as the celebration project.
 
 ## What's in this folder
 
-- **`claude-code-setup-guide.md`** - the main setup guide. Ten phases, each one self-contained, with a safety section up front. Plain language, every acronym explained, every command shown exactly as you'll type it.
-- **`CLAUDE.md.template`** - a fill-in-the-blanks template that teaches Claude how you like to work. You copy this into place once and Claude reads it at the start of every session.
-- **`build-your-first-skill.md`** - a walkthrough for building your own Claude skill using the `prompt-builder` skill. This is where the real leverage kicks in.
-- **`skills/prompt-builder/`** - a pre-built skill that helps you design high-quality prompts through a guided interview. You install this once and use it forever.
-
-## What the setup guide covers (at a glance)
-
-1. **Get Claude** - create your account and install the desktop app, so Claude is with you as a helper for the rest of the setup
-2. **Terminal and Xcode Command Line Tools** - open the terminal and install the base developer tools from Apple
-3. **Homebrew** - install the Mac package manager you'll use to grab everything else
-4. **Git and GitHub** - set up version control and authenticate with GitHub via the official CLI
-5. **Node.js via nvm** - install Node the flexible way using a version manager
-6. **VS Code** - install the code editor you'll use to view and edit markdown files
-7. **Install Claude Code** - install the CLI and sign in with your Claude Pro or Max plan
-8. **Clone this Starter Kit** - download this kit from GitHub using git (your first real use of terminal + git together)
-9. **End-to-End Validation** - a checklist to confirm everything works
-10. **Snake** - a small celebration project: ask Claude Code to build a working Snake game and push it to your own GitHub
-
-Each phase tells you exactly what to type, what you should see, and what to do if something goes wrong. Claude is right there with you from Phase 1, so if you get stuck you can screenshot and ask.
-
-## How to use this kit
-
-Open `claude-code-setup-guide.md` and work through it in order. Don't skip phases. The later ones depend on the earlier ones.
-
-Once you finish the setup guide, open `build-your-first-skill.md` and build your first custom skill. Plan 15-20 minutes.
+- **`README.md`** (this file) - the orchestrator
+- **`build-your-first-skill.md`** - the Cowork walkthrough. Do this first.
+- **`claude-code-setup-guide.md`** - the Claude Code setup guide. Do this second.
+- **`CLAUDE.md`** - a fill-in-the-blanks template used in the Claude Code setup
+- **`skills/prompt-builder/`** - the pre-built prompt-builder skill (installed via the Customise menu in the walkthrough)
 
 ## Recommended next action
 
-Open `claude-code-setup-guide.md` and start at Phase 1.
+Complete Step 1 (get your Claude account and install the desktop app), then open `build-your-first-skill.md` and work through it.

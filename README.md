@@ -25,10 +25,10 @@ You'll do Cowork first so you get a productivity win early and get comfortable w
 
 ---
 
-## Step 0: Get the Claude Starter Kit by mmjclayton (if you're reading this on Github, you're already here! Jump to bullet number 2 below.)
+## Step 0: Get the Claude Starter Kit by mmjclayton
 
-1. Go to https://github.com/mmjclayton/claude-starter-kit
-2. Click the green Code button, then Download ZIP
+1. Go to https://github.com/mmjclayton/claude-starter-kit (if you're reading this on Github, you're already here! Jump to the next bullet.)
+2. Click the green Code button toward the top of the page, then select 'Download ZIP'
 3. Unzip it to your Desktop (or wherever you like), then open README.md - this is the file you're reading now, but by downloading the whole folder you'll have everything on your own machine
 
 ## Step 1: Get Claude

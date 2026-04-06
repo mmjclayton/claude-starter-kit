@@ -29,14 +29,18 @@ You'll do Cowork first so you get a productivity win early and get comfortable w
 
 ## Step 0: Get the Claude Starter Kit by mmjclayton
 
-1. Go to https://github.com/mmjclayton/claude-starter-kit (if you're reading this on Github, you're already here!)
+If you downloaded the ZIP file already, you can skip to Step 1.
+
+1. Go to https://github.com/mmjclayton/claude-starter-kit
 2. Click the green Code button toward the top of the page, then select 'Download ZIP'
 3. Unzip it to your Desktop (or wherever you like), then open README.md - this is the file you're reading now, but by downloading the whole folder you'll have everything on your own machine.
 4. You can continue following the instructions here, or you can open the README.md file in the folder you just downloaded, and carry on reading there (it's the same file as what you're reading now)
 
 ## Step 1: Get Claude
 
-Before anything else, get your account and the desktop app.
+If you already have Claude installed on your Mac you can skip to Step 2.
+
+Get your Claude account and the desktop app.
 
 1. Go to https://claude.ai/signup and create an account (or sign in at https://claude.ai/login if you already have one).
 2. Subscribe to **Claude Pro or Max** at https://claude.ai/settings/billing. Pro is enough to start.

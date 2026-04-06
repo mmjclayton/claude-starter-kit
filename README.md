@@ -1,6 +1,6 @@
-# Claude Starter Kit
+# Claude Starter Kit (Starts Here!)
 
-A step-by-step starter pack for getting up and running with Claude on your Mac - designed for people who aren't developers and have never used a terminal before (or don't even know what Terminal means for now - that's OK!).
+A step-by-step starter pack for getting up and running with Claude on your Mac - designed for people who aren't developers and have never used a terminal before (or don't even know what Terminal means for now - that's OK). 
 
 ## Who this is for
 

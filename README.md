@@ -2,6 +2,8 @@
 
 A step-by-step starter pack for getting up and running with Claude on your Mac - designed for people who aren't developers and have never used a terminal before (or don't even know what Terminal means for now - that's OK). 
 
+Click the green Code button toward the top of the page, then select 'Download ZIP' to download the kit now.
+
 ## Who this is for
 
 You want to get involved more in "AI" and start levelling up your skills. You have a Mac, you're paying for Claude (or about to), and you want to get the most out of it. You're not a developer and you've never written code, or not much of it at least. You want to see what all the fuss is about.  

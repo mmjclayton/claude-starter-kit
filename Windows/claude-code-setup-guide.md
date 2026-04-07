@@ -342,10 +342,12 @@ CLAUDE.md is a file that teaches Claude how you like to work. It's loaded automa
 ```powershell
 mkdir ~\.claude -Force
 copy CLAUDE.md ~\.claude\CLAUDE.md
-code ~\.claude\CLAUDE.md
+notepad $HOME\.claude\CLAUDE.md
 ```
 
-VS Code will open the file. Fill in every `[BRACKETED PLACEHOLDER]` with your own details (name, role, preferences, tools). Save with `Ctrl + S` and close the window.
+Notepad will open the file. Fill in every `[BRACKETED PLACEHOLDER]` with your own details (name, role, preferences, tools). Save with `Ctrl + S` and close the window.
+
+(`$HOME` is another way to write `~` in PowerShell - we use it here because Notepad doesn't understand `~` on its own.)
 
 Verify: open PowerShell and run:
 

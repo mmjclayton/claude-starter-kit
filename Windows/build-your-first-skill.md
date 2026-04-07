@@ -1,6 +1,6 @@
-# Build Your First Skill (Claude Cowork)
+# Build Your First Skill (Claude Cowork for Windows)
 
-A step-by-step walkthrough for installing the `prompt-builder` skill in Claude Cowork, then using it to build your own custom skill. Everything here happens inside Cowork (the mode in the Claude desktop app) - no terminal required.
+A step-by-step walkthrough for installing the `prompt-builder` skill in Claude Cowork, then using it to build your own custom skill. Everything here happens inside Cowork (the mode in the Claude desktop app) - no command line required.
 
 **Before you start:** make sure you've completed Step 1 of the README - you need a Claude Pro or Max subscription and the Claude desktop app installed and signed in.
 
@@ -12,7 +12,7 @@ Claude comes with a lot of pre-built skills, but the ones tailored to YOUR work 
 
 ## What you'll do
 
-1. Open Claude Cowork and give it access to a folder on your Mac.
+1. Open Claude Cowork and give it access to a folder on your PC.
 2. Install the `prompt-builder` skill (Cowork downloads and installs it for you).
 3. Trigger `prompt-builder` and let it interview you about the skill you want to build.
 4. Have Cowork save the result as a proper SKILL.md file.
@@ -24,24 +24,24 @@ Total time: 30 minutes for your first skill. Subsequent skills take 10-15 minute
 
 ## Step 1: Open Claude Cowork
 
-Launch the Claude desktop app and open a new chat in **Cowork** mode. Cowork is the mode inside the Claude desktop app where skills live and where Claude can access files on your Mac. If you don't see Cowork as an option, check you've signed in with your Pro or Max account.
+Launch the Claude desktop app and open a new chat in **Cowork** mode. Cowork is the mode inside the Claude desktop app where skills live and where Claude can access files on your PC. If you don't see Cowork as an option, check you've signed in with your Pro or Max account.
 
-When you start a Cowork chat, Claude will ask for access to a folder on your Mac. Select your home folder (the one with your name on it, usually something like `/Users/yourname`). This lets Cowork read and write files when you ask it to - including where skills live (`~/.claude/skills/`).
+When you start a Cowork chat, Claude will ask for access to a folder on your PC. Select your user folder (the one with your name on it, usually something like `C:\Users\yourname`). This lets Cowork read and write files when you ask it to - including where skills live (`%USERPROFILE%\.claude\skills\`).
 
 **Check your model:** at the bottom of the chat input box, you'll see the model name (e.g. "Sonnet 4.6"). Click it to switch. Stick with **Sonnet** for this walkthrough - it's fast and plenty capable for building skills. Switch to **Opus** later when you're tackling heavier work like strategy, analysis, or long documents. See the "Which model should you use?" section in the README if you skipped it.
 
 ## Step 2: Install the prompt-builder skill (pre-read)
 
-You're going to install `prompt-builder` using the Claude desktop app's built-in skills manager. This is the cleanest way to add a skill - no file paths, no terminal.
+You're going to install `prompt-builder` using the Claude desktop app's built-in skills manager. This is the cleanest way to add a skill - no file paths, no command line.
 
 ### A note on permissions (important, read this first)
 
-Cowork is cautious by design. Every time it wants to do something on your Mac for the first time - access a folder, download a file, run a command - it will pop up a permission prompt asking you to **Allow** or **Deny**. You'll see these throughout your Cowork chats, not just on day one.
+Cowork is cautious by design. Every time it wants to do something on your PC for the first time - access a folder, download a file, run a command - it will pop up a permission prompt asking you to **Allow** or **Deny**. You'll see these throughout your Cowork chats, not just on day one.
 
 **What you'll see in this step:**
 
 1. First, Cowork will try to download the file from GitHub. It may ask permission to access the web or a specific domain - click **Allow**.
-2. Then Cowork will ask to access your `~/Desktop` folder to save the file there - click **Allow**.
+2. Then Cowork will ask to access your Desktop folder to save the file there - click **Allow**.
 
 If something fails (e.g. "Failed to fetch..."), it's usually because a permission hasn't been granted yet. Read the popup, allow what it's asking for, and tell Cowork to try again.
 
@@ -49,7 +49,7 @@ General rule: if Cowork is asking for access to a folder or domain that matches 
 
 As you may have already guessed, you actually already have the prompt builder skill.md file on your machine if you downloaded the whole folder from Github earlier. That's OK. It's good to get used to asking Claude to do things for you, even if it is technically a double up this one time.
 
-### 2a. Get the SKILL.md file onto your Mac
+### 2a. Get the SKILL.md file onto your PC
 
 Paste this into your Cowork chat:
 
@@ -57,7 +57,7 @@ Paste this into your Cowork chat:
 Download https://raw.githubusercontent.com/mmjclayton/claude-starter-kit/main/skills/prompt-builder/SKILL.md and save it to my Desktop as prompt-builder-SKILL.md. Confirm when it's done.
 ```
 
-Approve the permission prompts as they appear (web access, then `~/Desktop` folder access). Cowork will then fetch the file and save it to your Desktop.
+Approve the permission prompts as they appear (web access, then Desktop folder access). Cowork will then fetch the file and save it to your Desktop.
 
 If the download fails, tell Cowork: `Try again.` It usually works on the second attempt once permissions are sorted.
 
@@ -70,7 +70,7 @@ If the download fails, tell Cowork: `Try again.` It usually works on the second 
 
 Claude imports the file and installs it in the right place for you. This is how you'll install every skill going forward - remember this flow.
 
-Remember, you do have the prompt builder file in the ZIP folder you downloaded earlier, if you get really stuck. 
+Remember, you do have the prompt builder file in the ZIP folder you downloaded earlier, if you get really stuck.
 
 ### 2c. Start a new Cowork chat
 
@@ -140,7 +140,7 @@ Now you need to actually save it. There are three ways - the first is the easies
 2. Click the **+** button and choose **Add a new skill**.
 3. Select the SKILL.md file from your computer.
 
-Claude imports the file and installs it in the right place for you. No file paths to remember, no terminal. This is how you should add every skill you build going forward.
+Claude imports the file and installs it in the right place for you. No file paths to remember, no command line. This is how you should add every skill you build going forward.
 
 If you need a file on your computer first, ask Cowork: `Save that skill file to my Desktop as SKILL.md so I can import it via Customise.` Then do the three steps above.
 
@@ -153,7 +153,7 @@ When you show Cowork a skill file in chat, it will often offer to save it to you
 You can also just say:
 
 ```
-Save that as ~/.claude/skills/[skill-name]/SKILL.md. Use all-lowercase with hyphens for the folder name, no spaces. Create the folder if it doesn't exist.
+Save that as %USERPROFILE%\.claude\skills\[skill-name]\SKILL.md. Use all-lowercase with hyphens for the folder name, no spaces. Create the folder if it doesn't exist.
 ```
 
 Cowork will write the file straight to the right location. Good for quick iteration once you're comfortable.
@@ -163,7 +163,7 @@ Cowork will write the file straight to the right location. Good for quick iterat
 In the same Cowork chat, ask:
 
 ```
-List the skills in ~/.claude/skills/ and show me the contents of the SKILL.md you just created.
+List the skills in %USERPROFILE%\.claude\skills\ and show me the contents of the SKILL.md you just created.
 ```
 
 Cowork will list the folder and print the file. You should see `prompt-builder` and your new skill folder side by side, and the SKILL.md should have the frontmatter and prompt instructions you agreed on.
@@ -177,11 +177,11 @@ Start a **new** Cowork chat (so it picks up the newly installed skill). Test it 
 
 If the skill is loaded correctly, Cowork will follow the workflow you designed (asking hard questions, pushing back, etc.) instead of giving a generic response.
 
-**If natural language doesn't trigger the skill:** the description in the frontmatter isn't catching your phrase. Go back to Cowork and say: `Update ~/.claude/skills/<your-skill>/SKILL.md - add more trigger phrases to the description so it catches phrases like "<your phrase>".` Then start a new Cowork chat and try again. (The slash command will still work even if the trigger phrases are weak.)
+**If natural language doesn't trigger the skill:** the description in the frontmatter isn't catching your phrase. Go back to Cowork and say: `Update %USERPROFILE%\.claude\skills\<your-skill>\SKILL.md - add more trigger phrases to the description so it catches phrases like "<your phrase>".` Then start a new Cowork chat and try again. (The slash command will still work even if the trigger phrases are weak.)
 
 ## Step 8: Iterate
 
-Your first skill won't be perfect. After using it a few times, notice what's missing or wrong. Ask Cowork to edit the SKILL.md for you (e.g. "Update ~/.claude/skills/product-brainstormer/SKILL.md to add a hard rule about always asking for unit economics"). Start a new Cowork chat to pick up the changes.
+Your first skill won't be perfect. After using it a few times, notice what's missing or wrong. Ask Cowork to edit the SKILL.md for you (e.g. "Update %USERPROFILE%\.claude\skills\product-brainstormer\SKILL.md to add a hard rule about always asking for unit economics"). Start a new Cowork chat to pick up the changes.
 
 Common tweaks:
 
@@ -208,4 +208,4 @@ Each one takes 15-30 minutes to build and saves hours across a year.
 
 ## Recommended next action
 
-Pick one skill that would make your week noticeably easier and build it right now. Once you've got two or three skills working comfortably, open `claude-code-setup-guide.md` - that's the next step in the kit, where you set up Claude Code and unlock the more powerful terminal-based workflows.
+Pick one skill that would make your week noticeably easier and build it right now. Once you've got two or three skills working comfortably, open `claude-code-setup-guide.md` - that's the next step in the kit, where you set up Claude Code and unlock the more powerful command line workflows.

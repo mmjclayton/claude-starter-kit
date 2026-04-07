@@ -43,6 +43,7 @@ Each folder contains the full kit for that platform - same structure, same skill
 - `build-your-first-skill.md` - the Cowork walkthrough (do this first)
 - `claude-code-setup-guide.md` - the Claude Code setup guide (do this second)
 - `CLAUDE.md` - a fill-in-the-blanks template used in the Claude Code setup
+- `CHEAT-SHEET.md` - a quick reference guide for common commands and shortcuts
 - `skills/prompt-builder/` - the pre-built prompt-builder skill
 
 ## Next Steps
@@ -73,7 +74,7 @@ The mindset shift is this: you're not using a tool, you're working with a partne
 
 ## Quick cheat sheet
 
-Once you're set up, here's what you'll use most. Full platform-specific versions are in `mac/CHEAT-SHEET.md` and `windows/CHEAT-SHEET.md`.
+Once you're set up, here's what you'll use most. Full platform-specific versions are in `Mac/CHEAT-SHEET.md` and `Windows/CHEAT-SHEET.md`.
 
 ### Opening your terminal
 

@@ -477,7 +477,7 @@ claude
 At the Claude Code prompt, paste this exactly:
 
 ```
-Build a single-file HTML Snake game in a file called index.html. Requirements: drawn on a canvas element, arrow keys to move, score display, game over screen with restart on spacebar, snake grows when it eats food, food spawns in random positions, dark background with a bright green snake. Keep all CSS and JavaScript inline in the same HTML file. No external libraries.
+Build a single-file HTML Snake game in a file called index.html. Requirements: drawn on a canvas element, arrow keys to move, score display, game over screen with restart on spacebar, snake grows when it eats food, food spawns in random positions, dark background with a bright green snake. Display the controls underneath the game screen. Keep all CSS and JavaScript inline in the same HTML file. No external libraries.
 ```
 
 Claude Code will ask permission to create the file. Approve it. It will write the whole game in one go (30-60 seconds).

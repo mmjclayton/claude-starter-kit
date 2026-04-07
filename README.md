@@ -6,7 +6,7 @@ If you haven't already, download the repo from GitHub (green Code button > Downl
 
 ## Who this is for
 
-You want to get involved more in "AI" and start levelling up your skills. You have a Mac, you're paying for Claude (or about to), and you want to get the most out of it. You're not a developer and you've never written code, or not much of it at least. You want to see what all the fuss is about.  
+You want to get involved more in "AI" and start levelling up your skills. You're paying for Claude (or about to), and you want to get the most out of it. You're not a developer and you've never written code, or not much of it at least. You want to see what all the fuss is about.
 
 With this starter guide, you'll set up two tools, in this order:
 
@@ -45,8 +45,83 @@ Each folder contains the full kit for that platform - same structure, same skill
 - `CLAUDE.md` - a fill-in-the-blanks template used in the Claude Code setup
 - `skills/prompt-builder/` - the pre-built prompt-builder skill
 
-## Recommended next action
+## Next Steps
 
 Download the repo, open your platform folder, and follow the README.md inside it.
 
 Have fun!
+
+
+
+## Cheat Sheet (Reference Guide)
+
+---
+
+## Use Claude as your working partner
+
+This is the thing most people don't do enough, especially when they're starting out: just ask Claude.
+
+Get stuck on a command? Screenshot your terminal window or copy-paste the error, drop it into a Claude Cowork chat, and ask "what does this mean and what should I do?" You don't need to understand what went wrong - Claude will explain it in plain English and walk you through fixing it.
+
+Not sure what to build next? Ask. Describe what you do for work and say "suggest three things I could build with Claude Code that would save me real time." Claude will give you ideas tailored to your situation.
+
+Want to work faster? Run Cowork and Claude Code at the same time. Use Cowork for conversation and planning - it's great for thinking things through, writing, and giving Claude context about what you're trying to do. Use Claude Code for the actual building - it works directly in your files and folders. Flick between them freely. They complement each other.
+
+The mindset shift is this: you're not using a tool, you're working with a partner. Talk to it like one. Give it context. Tell it when something's wrong. Ask follow-up questions. The more you treat it like a collaborator, the more useful it becomes.
+
+---
+
+## Quick cheat sheet
+
+Once you're set up, here's what you'll use most. Full platform-specific versions are in `mac/CHEAT-SHEET.md` and `windows/CHEAT-SHEET.md`.
+
+### Opening your terminal
+
+**Mac:** press `Cmd + Space`, type `Terminal`, press Enter.
+
+**Windows:** press the `Windows` key, type `PowerShell`, press Enter.
+
+### Navigating folders
+
+| What you want to do | Mac (Terminal) | Windows (PowerShell) |
+|---|---|---|
+| See where you are | `pwd` | `pwd` |
+| List files | `ls` | `ls` or `dir` |
+| Go into a folder | `cd foldername` | `cd foldername` |
+| Go back up one level | `cd ..` | `cd ..` |
+| Go to your home folder | `cd ~` | `cd ~` |
+| Open folder in VS Code | `code .` | `code .` |
+| Open folder in Finder/Explorer | `open .` | `explorer .` |
+
+**Tip:** press `Tab` to autocomplete folder and file names - works on both platforms.
+
+### Starting and using Claude Code
+
+These commands are the same on Mac and Windows:
+
+| What you want to do | Command |
+|---|---|
+| Start Claude Code in current folder | `claude` |
+| Open a project and start Claude Code | `cd ~/code/myproject` then `claude` |
+| Exit Claude Code | `/exit` |
+| Switch model | `/model` |
+| Clear the conversation context | `/clear` |
+| See all available commands | `/help` |
+
+### The basic loop
+
+1. `cd` into your project folder
+2. Run `claude`
+3. Describe what you want in plain English
+4. Review what Claude proposes, approve or decline
+5. `/exit` when done
+
+### Getting unstuck
+
+**Command not found:** close your terminal and reopen it - newly installed tools need a fresh window.
+
+**Something looks broken:** copy the error, open claude.ai, paste it in, and ask "what does this mean and what should I do?" Claude will walk you through it.
+
+**Forgot where you are:** run `pwd` - it prints your full current location.
+
+**Cancel a running command:** `Ctrl + C` on both Mac and Windows.

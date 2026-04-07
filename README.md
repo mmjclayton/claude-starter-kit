@@ -48,7 +48,7 @@ Each folder contains the full kit for that platform - same structure, same skill
 
 ## Next Steps
 
-Download the repo, open your platform folder, and follow the README.md inside it.
+Download the repo, open the Mac or Windows folder (whichever you're using), and follow the README.md inside it.
 
 Have fun!
 

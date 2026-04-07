@@ -99,3 +99,5 @@ The guide covers: Terminal basics, Xcode Command Line Tools, Homebrew, Git and G
 ## Recommended next action
 
 Complete Step 1 (get your Claude account and install the desktop app), then open `build-your-first-skill.md` and work through it.
+
+If you want to collab or chat email: mmjcodes@gmail.com 

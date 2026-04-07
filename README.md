@@ -137,3 +137,6 @@ These commands are the same on Mac and Windows:
 | Delete from cursor to start of line | `Ctrl + U` | `Ctrl + Home` |
 | Delete the word before the cursor | `Ctrl + W` | `Ctrl + Backspace` |
 | Move word by word | `Option + ←/→` | `Ctrl + ←/→` |
+
+
+If you want to collab or chat email: mmjcodes@gmail.com 

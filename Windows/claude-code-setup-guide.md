@@ -521,4 +521,6 @@ If you're stuck for what to do, remember, Claude Cowork is your friend. You coul
 
 The best thing you can do is keep playing around. Try things. Have fun.
 
+BTW - you can play my version of the Snake game here: https://mmjclayton.github.io/snake/
+
 Be good!

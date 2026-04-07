@@ -126,3 +126,14 @@ These commands are the same on Mac and Windows:
 **Forgot where you are:** run `pwd` - it prints your full current location.
 
 **Cancel a running command:** `Ctrl + C` on both Mac and Windows.
+
+### Editing what you type in command line
+
+| What you want to do | Mac (Terminal) | Windows (PowerShell) |
+|---|---|---|
+| Jump to start of line | `Ctrl + A` | `Home` |
+| Jump to end of line | `Ctrl + E` | `End` |
+| Delete from cursor to end of line | `Ctrl + K` | `Ctrl + End` |
+| Delete from cursor to start of line | `Ctrl + U` | `Ctrl + Home` |
+| Delete the word before the cursor | `Ctrl + W` | `Ctrl + Backspace` |
+| Move word by word | `Option + ←/→` | `Ctrl + ←/→` |

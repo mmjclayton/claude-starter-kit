@@ -123,3 +123,14 @@ Run `pwd` - it prints your current location in full.
 | Up arrow | Scroll back through previous commands |
 | `Tab` | Autocomplete a file or folder name |
 | `Ctrl + Shift + T` | New tab (Windows Terminal only) |
+
+## Editing what you type in command line
+
+| Shortcut | What it does |
+|---|---|
+| `Home` | Jump to start of line |
+| `End` | Jump to end of line |
+| `Ctrl + Home` | Delete from cursor to start of line |
+| `Ctrl + End` | Delete from cursor to end of line |
+| `Ctrl + Backspace` | Delete the word before the cursor |
+| `Ctrl + ←/→` | Move word by word |

@@ -118,3 +118,14 @@ Run `pwd` - it prints your current location in full.
 | Up arrow | Scroll back through previous commands |
 | `Tab` | Autocomplete a file or folder name |
 | `Cmd + T` | New Terminal tab |
+
+## Editing what you type in command line
+
+| Shortcut | What it does |
+|---|---|
+| `Ctrl + A` | Jump to start of line |
+| `Ctrl + E` | Jump to end of line |
+| `Ctrl + K` | Delete from cursor to end of line |
+| `Ctrl + U` | Delete from cursor to start of line |
+| `Ctrl + W` | Delete the word before the cursor |
+| `Option + ←/→` | Move word by word |

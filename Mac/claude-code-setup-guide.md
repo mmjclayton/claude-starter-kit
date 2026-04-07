@@ -365,14 +365,26 @@ Get Matt's starter kit onto your Mac. This is your first real Git clone (downloa
 
 **Step 1: Clone the kit**
 
+First, create a folder for your projects and move into it:
+
 ```bash
 mkdir -p ~/code
 cd ~/code
-git clone https://github.com/mmjclayton/claude-starter-kit.git
-cd claude-starter-kit
 ```
 
-(`code` is just a suggested name for where you'll keep your projects - you can call it whatever you like, just use the same name in the later phases. `git clone` downloads a copy of the repo into a new folder.)
+Now clone the repo. Run this command and **wait for it to finish** before running the next one:
+
+```bash
+git clone https://github.com/mmjclayton/claude-starter-kit.git
+```
+
+Once the clone completes (you'll see "done" and get your prompt back), move into the Mac folder:
+
+```bash
+cd claude-starter-kit/Mac
+```
+
+(`code` is just a suggested name for where you'll keep your projects - you can call it whatever you like, just use the same name in the later phases. `git clone` downloads a copy of the repo into a new folder. We then navigate into the `Mac` subfolder since that's where the Mac-specific files live.)
 
 Verify:
 

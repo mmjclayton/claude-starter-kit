@@ -300,14 +300,28 @@ Get Matt's starter kit onto your PC. This is your first real Git clone (download
 
 **Step 1: Clone the kit**
 
+First, create a folder for your projects and move into it. Run these two lines:
+
 ```powershell
 mkdir ~\code
 cd ~\code
+```
+
+**How to type `~`:** on most keyboards, press `Shift` + the backtick key (`` ` ``), which is usually to the left of `1` on the number row, below `Esc`. On some keyboards (especially laptops) you may need a different combination like `Shift + Fn + Esc`. If you can't find it, type `tilde symbol` into a search engine for your specific keyboard layout, or just type the full path instead (e.g. `C:\Users\YourName\code` instead of `~\code`). In PowerShell, `~` is just shorthand for your user folder.
+
+Now clone the repo. Run this command and **wait for it to finish** before running the next one:
+
+```powershell
 git clone https://github.com/mmjclayton/claude-starter-kit.git
+```
+
+Once the clone completes (you'll see "done" and get your prompt back), move into the Windows folder:
+
+```powershell
 cd claude-starter-kit\Windows
 ```
 
-(`code` is just a suggested name for where you'll keep your projects - you can call it whatever you like, just use the same name in the later phases. `git clone` downloads a copy of the repo into a new folder. We then navigate into the `windows` subfolder since that's where the Windows-specific files live.)
+(`code` is just a suggested name for where you'll keep your projects - you can call it whatever you like, just use the same name in the later phases. `git clone` downloads a copy of the repo into a new folder. We then navigate into the `Windows` subfolder since that's where the Windows-specific files live.)
 
 Verify:
 

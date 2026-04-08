@@ -2,7 +2,7 @@
 
 A step-by-step starter pack for getting up and running with Claude - designed for people who aren't developers and have never used a command line before (or don't even know what command line is - that's OK!).
 
-If you haven't already, download the repo from GitHub (green Code button > Download ZIP), unzip it, and open the folder. This file will be inside it.
+If you haven't already, download the files HERE (use the green Code button > Download ZIP, toward the top of the page), unzip it, and open the folder. This file will be inside it.
 
 ## Who this is for
 
@@ -10,7 +10,7 @@ You want to get involved more in "AI" and start levelling up your skills. You're
 
 With this starter guide, you'll set up two tools, in this order:
 
-1. **Claude Cowork first** - a mode inside the Claude desktop app where custom skills live. This is the fastest way to get real productivity wins. Installing a skill and building your own takes about 30 minutes, no terminal required.
+1. **Claude Cowork first** - a mode inside the Claude desktop app where custom skills live. Think of skills as pre-set prompts that do things for you. This is the fastest way to get real productivity wins. Installing a skill and building your own takes about 30 minutes, no terminal required.
 2. **Claude Code next** - a command line tool for doing more powerful work with Claude directly from the command line. Takes about an hour to set up cleanly from scratch, and the guide walks you through it with every step explained in plain English.
 
 You'll do Cowork first so you get a productivity win early and get comfortable with Claude doing real work for you. Then you'll move onto Claude Code, where things get more powerful (you can start writing code, without having to know how to write code!)

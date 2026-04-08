@@ -2,7 +2,9 @@
 
 A step-by-step starter pack for getting up and running with Claude - designed for people who aren't developers and have never used a command line before (or don't even know what command line is - that's OK!).
 
-If you haven't already, download the files HERE (use the green Code button > Download ZIP, toward the top of the page), unzip it, and open the folder. This file will be inside it.
+If you haven't already, download the files to your computer - scroll up, hit the green Code button, select Download ZIP. Once it downloads, unzip it then open the folder. This file will be inside it.
+
+A good practice to follow is as you're reading this, if you're unclear about anything - start asking questions in Claude.
 
 ## Who this is for
 
@@ -19,17 +21,17 @@ You'll do Cowork first so you get a productivity win early and get comfortable w
 
 - A Claude account with Pro or Max
 - The Claude desktop app installed (home of Cowork)
-- The `prompt-builder` skill installed in Cowork which makes it easy to create amazing prompts for any purpose (and for any large language model like Claude, ChatGPT, Gemini - any and all of them)
+- The `prompt-builder` skill installed in Cowork which makes it easy to create amazing prompts for any purpose (and for any AI tool like Claude, ChatGPT, Gemini - any and all of them)
 - Your own custom skill, built from scratch in about 15 minutes (Skills are a 'Claude' term at the time of writing - think of them as a saved prompt that you can rerun at any time).
 - Claude Code running on your machine (so you can start building things with Claude Code)
 - A personalised `CLAUDE.md` file so Claude already knows how you work
-- Your first coding project pushed to GitHub
+- Your first coding project saved to GitHub (a website that stores your projects online so you can access them from anywhere)
 
 ---
 
 ## Getting started
 
-1. Download this repo (green Code button > Download ZIP) and unzip it.
+1. Download these files (green Code button > Download ZIP) and unzip it.
 2. Open the folder for your operating system:
 
    - **Mac** - open the `Mac/` folder and start with `README.md`
@@ -48,7 +50,7 @@ Each folder contains the full kit for that platform - same structure, same skill
 
 ## Next Steps
 
-Download the repo, open the Mac or Windows folder (whichever you're using), and follow the README.md inside it.
+Download the files, open the Mac or Windows folder (whichever you're using), and follow the README.md inside it.
 
 Have fun!
 

@@ -12,7 +12,7 @@ You want to get involved more in "AI" and start levelling up your skills. You're
 
 With this starter guide, you'll set up two tools, in this order:
 
-1. **Claude Cowork first** - a mode inside the Claude desktop app where custom skills live. Think of skills as pre-set prompts that do things for you. This is the fastest way to get real productivity wins. Installing a skill and building your own takes about 30 minutes, no terminal required.
+1. **Claude Cowork first** - a mode inside the Claude desktop app where custom skills live. Think of skills as pre-set prompts that do things for you. This is the fastest way to get real productivity wins. Installing a skill and building your own takes about 30 minutes, no coding required.
 2. **Claude Code next** - a command line tool for doing more powerful work with Claude directly from the command line. Takes about an hour to set up cleanly from scratch, and the guide walks you through it with every step explained in plain English.
 
 You'll do Cowork first so you get a productivity win early and get comfortable with Claude doing real work for you. Then you'll move onto Claude Code, where things get more powerful (you can start writing code, without having to know how to write code!)
@@ -31,7 +31,7 @@ You'll do Cowork first so you get a productivity win early and get comfortable w
 
 ## Getting started
 
-1. Download these files (green Code button > Download ZIP) and unzip it.
+1. Download the files (scroll to the top of this page - find the green Code button, click it then select Download ZIP, then unzip on your computer).
 2. Open the folder for your operating system:
 
    - **Mac** - open the `Mac/` folder and start with `README.md`

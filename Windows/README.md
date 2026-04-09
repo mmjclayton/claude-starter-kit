@@ -2,7 +2,7 @@
 
 This is the Windows version of the Claude Starter Kit - a step-by-step guide for getting up and running with Claude, designed for people who aren't developers and have never used PowerShell or Command Prompt before (or don't even know what those mean for now - that's OK).
 
-If you haven't already, download the repo from GitHub (green Code button > Download ZIP), unzip it, and open the `Windows/` folder. This file should be inside it.
+If you haven't already, download the repo from GitHub (green Code button > Download ZIP), unzip it, and open the `Windows/` folder. This file should be inside it. If you downloaded these files a while ago, go back to the GitHub page and grab a fresh copy - the kit gets updated regularly.
 
 ## Who this is for
 
@@ -87,6 +87,8 @@ Claude Code is the command line version of Claude. It runs in your PC's PowerShe
 This is the longer path - about 90 minutes - and it's the first time you'll touch the command line. There's a safety section at the top that explains exactly what is and isn't risky, and Claude is there with you the whole time to help if you get stuck.
 
 The guide covers: PowerShell basics, Git and GitHub, Node.js, VS Code, Claude Code itself, picking your model with `/model`, a personalised `CLAUDE.md`, and a working Snake game as the celebration project.
+
+**Keeping the kit up to date:** now that you've set up Git, you don't need to re-download the ZIP any more. Each time you come back to work with these files, open PowerShell, go to the folder where they are, and type `git pull` then press Enter. That grabs the latest version automatically.
 
 ## What's in this folder
 

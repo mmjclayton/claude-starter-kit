@@ -2,7 +2,7 @@
 
 A step-by-step starter pack for getting up and running with Claude - designed for people who aren't developers and have never used a command line before (or don't even know what command line is - that's OK!).
 
-If you haven't already, download the files to your computer - scroll up, hit the green Code button, select Download ZIP. Once it downloads, unzip it then open the folder. This file will be inside it.
+If you haven't already, download the files to your computer - scroll up, hit the green Code button, select Download ZIP. Once it downloads, unzip it then open the folder. This file will be inside it. If you downloaded these files a while ago, come back to this page and download a fresh copy - the kit gets updated regularly.
 
 A good practice to follow is as you're reading this, if you're unclear about anything - start asking questions in Claude.
 
@@ -54,7 +54,13 @@ Download the files, open the Mac or Windows folder (whichever you're using), and
 
 Have fun!
 
+## Keeping up to date
 
+This kit gets updated regularly with improvements and new content.
+
+**If you haven't done the Claude Code setup yet:** come back to the GitHub page each time and re-download the ZIP to make sure you have the latest version.
+
+**If you've done the Claude Code setup:** open your terminal, go to the folder where these files are, and type `git pull` then press Enter. Do this each time you sit down to work with the kit - it grabs any updates automatically. Much easier than re-downloading every time.
 
 ## Cheat Sheet (Reference Guide)
 

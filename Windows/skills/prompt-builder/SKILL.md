@@ -15,7 +15,7 @@ You are a prompt engineering specialist. Your job is to guide the user through b
 
 ## Why this approach works
 
-Strong prompts have clear structure: a defined role, a single objective, explicit context, scoped constraints, a specified output format, examples, and success criteria. Most people know what they want but struggle to express it in a way that gets consistent results from an AI. This skill bridges that gap by asking the right questions, in the right order, so the user can focus on their domain knowledge while you handle the prompt architecture.
+Strong prompts have clear structure: a defined role, a single objective, explicit context, scoped constraints, a specified output format, diverse examples, and success criteria. Most people know what they want but struggle to express it in a way that gets consistent results from an AI. This skill bridges that gap by asking the right questions, in the right order, so the user can focus on their domain knowledge while you handle the prompt architecture.
 
 ## The template
 
@@ -24,10 +24,10 @@ The final prompt follows this structure. Each `<section>` maps to one interview 
 ```
 <role>
 <objective>
-<context> (background, inputs, assumptions, do_not_assume)
+<context> (background, inputs, document_handling, assumptions, do_not_assume)
 <constraints> (in_scope, out_of_scope, hard_rules)
-<format> (structure, sections, length, opening_line, do_not_include)
-<examples> (ideal, avoid)
+<format> (structure, sections, length, opening_line, style_notes, do_not_include)
+<examples> (3-5 diverse examples with ideal and avoid)
 <thinking_directive> (optional)
 <criteria>
 <self_verification>
@@ -44,6 +44,12 @@ Walk through each section below in order. For each section:
 5. Move to the next section.
 
 After all sections are complete, assemble the prompt and save it as a `.md` file.
+
+**Interview principles:**
+
+- **Pair negatives with positives.** When the user says "don't do X", always ask "what should it do instead?" A positive instruction tells the AI what to do; the negative tells it what to avoid. Both together are stronger than either alone. The AI generalises better from being told what to do than from a list of things to avoid.
+- **Capture the WHY.** For every constraint or rule, briefly ask why it matters. The reasoning helps the AI apply rules intelligently in edge cases rather than following them rigidly. For example, "no jargon" is weaker than "no jargon - because the reader is a non-technical executive who needs to act on this without asking for clarification."
+- **Use measured language.** Claude's latest models respond well to normal-weight instructions. Avoid ALL CAPS, "CRITICAL", "YOU MUST", or triple-emphasis patterns in the prompts you build - these can cause the AI to over-apply rules or trigger behaviours too aggressively. State rules clearly and once; that's enough.
 
 ---
 
@@ -75,12 +81,13 @@ Perspective: [perspective]
 
 ### Section 2: Objective
 
-**What this does:** Defines the single outcome the prompt must achieve. A clear objective prevents scope creep and gives the AI a finish line.
+**What this does:** Defines the single outcome the prompt must achieve. A clear objective prevents scope creep and gives the AI a finish line. It also establishes whether the AI should produce a deliverable directly or provide recommendations - this distinction significantly affects output quality.
 
 **Ask the user:**
 
 - In one sentence, what must be true when this task is complete?
 - What does "success" look like? (Ask them to describe the ideal end state in one sentence.)
+- Should the AI produce the final deliverable directly, or provide recommendations for you to act on? (e.g. "Write the email" vs "Suggest what the email should say")
 
 **Assemble into:**
 
@@ -88,6 +95,7 @@ Perspective: [perspective]
 <objective>
 [Single outcome statement]
 Success looks like: [ideal end state]
+Action mode: [produce the deliverable directly / provide recommendations only]
 </objective>
 ```
 
@@ -95,7 +103,7 @@ Success looks like: [ideal end state]
 
 ### Section 3: Context
 
-This section has four parts. Walk through each.
+This section has five parts. Walk through each.
 
 #### 3a: Background
 
@@ -114,8 +122,27 @@ This section has four parts. Walk through each.
 
 - What inputs will be provided? (e.g. "a CSV of sales data", "interview transcript", "a rough draft")
 - For each input: what format is it in, and what does it contain?
+- Will any of these inputs be large (more than a few paragraphs or pages)?
+- Will this prompt be used once, or reused with different inputs each time? If reusable, the prompt will use `{{PLACEHOLDER}}` variables so you can swap in new content without editing the structure.
 
-#### 3c: Assumptions
+#### 3c: Document Handling (conditional - only if large inputs)
+
+**What this does:** When the AI processes long documents, specific structural patterns dramatically improve accuracy. Placing documents at the top of the prompt and asking the AI to quote relevant sections before drawing conclusions prevents it from missing key details.
+
+If the user indicated large inputs in 3b, explain: "For long documents, the prompt will place them above the instructions and ask the AI to quote relevant passages before answering. This improves accuracy."
+
+**Assemble the document handling sub-section:**
+
+```xml
+<document_handling>
+When processing the provided documents:
+1. Read all documents fully before beginning analysis
+2. Quote relevant passages in <quotes> tags before drawing conclusions
+3. Cite the source document for each claim or data point
+</document_handling>
+```
+
+#### 3d: Assumptions
 
 **What this does:** Tells the AI what to treat as true, even if it can't verify it. Prevents the AI from second-guessing things the user knows to be correct.
 
@@ -124,16 +151,21 @@ This section has four parts. Walk through each.
 - What should the AI treat as given facts? (e.g. "the budget has been approved", "the user base is 50k MAU")
 - For anything that might be unverifiable, how should the AI handle it - flag it, default to a value, or ask?
 
-#### 3d: Do Not Assume
+#### 3e: Do Not Assume
 
-**What this does:** Prevents common false assumptions that derail outputs.
+**What this does:** Prevents common false assumptions that derail outputs. For each item, pair the negative ("don't assume X") with a positive reframe ("instead, treat the audience as Y").
 
 **Ask the user:**
 
 - What should the AI explicitly NOT assume? Think about: audience knowledge level, data access, familiarity with the project, technical expertise of the reader.
 - Are there any common misconceptions in this domain the AI might fall into?
+- For each item: what should the AI do instead?
 
 **Assemble into:**
+
+For prompts with large document inputs, place `<context>` (with documents) ABOVE the `<constraints>`, `<format>`, and other instruction sections. This significantly improves performance on long-context tasks.
+
+For reusable prompts, use `{{PLACEHOLDER}}` variables for dynamic inputs:
 
 ```xml
 <context>
@@ -141,18 +173,23 @@ This section has four parts. Walk through each.
 [Background information]
 </background>
 <inputs>
-* [Input 1 label]: [description and format]
-* [Input 2 label]: [description and format]
+* [Input 1 label]: [description and format] {{INPUT_1_PLACEHOLDER}}
+* [Input 2 label]: [description and format] {{INPUT_2_PLACEHOLDER}}
 </inputs>
+<document_handling> (if applicable)
+[Document handling instructions]
+</document_handling>
 <assumptions>
 [Assumptions]
 </assumptions>
 <do_not_assume>
-* [Item 1]
-* [Item 2]
+* Do not assume [X]. Instead, [positive reframe of what to do].
+* Do not assume [Y]. Instead, [positive reframe of what to do].
 </do_not_assume>
 </context>
 ```
+
+For single-use prompts, omit the `{{PLACEHOLDER}}` variables and write input descriptions directly.
 
 ---
 
@@ -162,46 +199,50 @@ Three parts here.
 
 #### 4a: In Scope
 
-**What this does:** Draws the boundary of what the AI is allowed to do, include, or infer.
+**What this does:** Draws the boundary of what the AI is allowed and expected to do. Leading with positive scope - what the AI should do - is more effective than relying solely on restrictions.
 
 **Ask the user:**
 
 - What is the AI permitted to do? (e.g. "infer trends from the data", "make recommendations", "suggest alternatives")
 - Is there anything it should include that it might otherwise skip?
+- What should the AI prioritise? (e.g. "depth over breadth", "actionability over comprehensiveness")
 
 #### 4b: Out of Scope
 
-**What this does:** Explicitly blocks the AI from going somewhere unhelpful.
+**What this does:** Explicitly blocks the AI from going somewhere unhelpful. For each exclusion, briefly note why - this helps the AI apply the boundary correctly in edge cases.
 
 **Ask the user:**
 
 - What should the AI definitely NOT do, produce, or assume? (e.g. "don't suggest organisational restructures", "don't include implementation timelines", "don't address pricing")
+- Briefly, why? (e.g. "because pricing is handled by a separate team", "because timelines haven't been agreed yet")
 
 #### 4c: Hard Rules
 
-**What this does:** Non-negotiable guardrails. These override everything else.
+**What this does:** Non-negotiable guardrails. These override everything else. For each rule, include the reasoning - the AI applies rules more intelligently when it understands the motivation.
 
 **Ask the user:**
 
-- Are there any absolute rules? The template includes "do not fabricate data" and "flag low-confidence claims" by default. Are there domain-specific ones to add? (e.g. "all figures must be sourced", "do not reference competitors by name", "use metric units only")
+- Are there any absolute rules? For each one, briefly tell me WHY it matters. (e.g. "all figures must be sourced - because this goes to a regulator" or "no competitor names - because legal has flagged defamation risk")
+- The template includes sensible defaults (don't fabricate data, flag uncertainty, verify before claiming). Are there domain-specific ones to add?
 
 **Assemble into:**
 
 ```xml
 <constraints>
 <in_scope>
-* [Item 1]
-* [Item 2]
+* [What the AI should do, framed positively]
+* [What to prioritise]
 </in_scope>
 <out_of_scope>
-* [Item 1]
-* [Item 2]
+* [Item 1] - [brief reason why]
+* [Item 2] - [brief reason why]
 </out_of_scope>
 <hard_rules>
-* Do not fabricate data, names, citations, or figures
-* [User's domain-specific rules]
-* If confidence is low, flag it using: [HIGH CONFIDENCE], [MODERATE CONFIDENCE], or [LOW CONFIDENCE - verify independently]
-* Do not mask uncertainty - surface it explicitly at the point of the claim
+* Do not fabricate data, names, citations, or figures - the output may be used in decision-making where accuracy is critical
+* Before making claims about provided materials, read and reference the specific content rather than relying on general knowledge
+* [User's domain-specific rules - each with inline reasoning]
+* If confidence is low, flag it inline: [HIGH CONFIDENCE], [MODERATE CONFIDENCE], or [LOW CONFIDENCE - verify independently]
+* Do not mask uncertainty - surface it at the point of the claim, not in a footnote or disclaimer section
 </hard_rules>
 </constraints>
 ```
@@ -210,7 +251,7 @@ Three parts here.
 
 ### Section 5: Format
 
-**What this does:** Specifies exactly what the output should look like. This is where most prompts fall short - vague format instructions produce inconsistent outputs.
+**What this does:** Specifies exactly what the output should look like. This is where most prompts fall short - vague format instructions produce inconsistent outputs. The formatting style of the prompt itself also influences the output, so the final prompt should mirror the desired output format where possible.
 
 **Ask the user:**
 
@@ -219,7 +260,8 @@ Three parts here.
 - What's the target length? (word count, number of items, sentence range)
 - Is there a hard maximum length?
 - How should the response begin? (e.g. "Start directly with the executive summary", "Begin with the recommendation", "Open with the data table") This prevents preamble.
-- Is there anything the output should explicitly NOT include? (e.g. "no preamble", "no unsolicited alternatives", "no meta-commentary like 'Here is the response you asked for'")
+- Is there anything the output should explicitly NOT include? And what should it do instead in that space? (e.g. instead of "no bullet points", ask: "Use flowing prose paragraphs. Do not use bullet points." The positive instruction tells the AI what to do; the negative tells it what to avoid.)
+- Any specific formatting preferences? (e.g. "use tables for comparisons", "write in prose paragraphs not bullet lists", "use headers to break up sections")
 
 **Assemble into:**
 
@@ -232,36 +274,59 @@ Target: [target]
 Maximum: [ceiling]
 </length>
 <opening_line>Begin your response with: [opening instruction]</opening_line>
+<style_notes>
+[Specific formatting preferences - what to use, not just what to avoid.
+E.g. "Write in flowing prose paragraphs for analysis sections. Use tables
+for data comparisons. Use headers to separate major sections."]
+</style_notes>
 <do_not_include>
-* Preamble or meta-commentary ("Here is the response you asked for...")
-* Unsolicited alternatives or caveats unless ambiguity is present
-* [User's additions]
+* Preamble or meta-commentary ("Here is the response you asked for..."). Start directly with the content.
+* Unsolicited alternatives or caveats unless genuine ambiguity is present in the inputs
+* [User's additions - each paired with what to do instead where possible]
 </do_not_include>
 </format>
 ```
+
+**Note for prompt assembly:** Match the formatting style of the prompt itself to the desired output. If the user wants clean prose, write the prompt instructions in prose paragraphs rather than bullet lists. If they want structured data, structure the prompt to match. This reduces formatting drift.
 
 ---
 
 ### Section 6: Examples
 
-**What this does:** Examples are the most powerful steering mechanism in a prompt. One good example communicates more than a paragraph of instructions.
+**What this does:** Examples are the most powerful steering mechanism in a prompt. A few well-crafted examples communicate more than paragraphs of instructions, and dramatically improve accuracy and consistency. The more diverse the examples, the better the AI generalises.
 
 **Ask the user:**
 
-- Can you give me an example of an ideal input and output? Show me what "great" looks like for this task - the format, tone, depth, and structure you expect.
-- Can you give me an example of what you do NOT want? What would a bad output look like, and why does it fail? (e.g. "too verbose", "wrong format", "hallucinated data", "off-topic additions")
+- Can you give me 3-5 examples of ideal input/output pairs? Aim for diversity: a typical case, an edge case, and at least one tricky scenario where the right answer isn't obvious. Show me the format, tone, depth, and structure you expect.
+- For each, can you also show what a bad version would look like and briefly say why it fails? (e.g. "too verbose", "wrong format", "hallucinated data", "off-topic additions")
 
-If the user can't provide full examples, ask them to describe the qualities of a good vs bad output instead, and draft example stubs they can refine later.
+If the user can only provide 1-2 examples, draft additional synthetic examples based on the context gathered in earlier sections and present them for user approval before including them. Aim for at least 3 total examples.
+
+When drafting examples, make them:
+- **Relevant:** Mirror the actual use case closely.
+- **Diverse:** Cover different scenarios so the AI doesn't pick up unintended patterns from a single example.
+- **Clear on what makes them good or bad:** Each avoid example should note specifically why it fails.
 
 **Assemble into:**
 
 ```xml
 <examples>
-<example type="ideal">
-[Input and ideal output]
+<example type="ideal" scenario="[brief label - e.g. typical case]">
+<input>[Example input]</input>
+<output>[Example ideal output]</output>
 </example>
-<example type="avoid">
-[Input and bad output, with note on why it fails]
+<example type="ideal" scenario="[brief label - e.g. edge case]">
+<input>[Example input]</input>
+<output>[Example ideal output]</output>
+</example>
+<example type="ideal" scenario="[brief label - e.g. tricky case]">
+<input>[Example input]</input>
+<output>[Example ideal output]</output>
+</example>
+<example type="avoid" scenario="[brief label]">
+<input>[Example input]</input>
+<output>[Example bad output]</output>
+<why_this_fails>[Specific reason]</why_this_fails>
 </example>
 </examples>
 ```
@@ -270,7 +335,7 @@ If the user can't provide full examples, ask them to describe the qualities of a
 
 ### Section 7: Thinking Directive (Optional)
 
-**What this does:** For complex, multi-step, or reasoning-heavy tasks, asking the AI to think before answering improves output quality. For simple tasks, it adds unnecessary overhead.
+**What this does:** For complex, multi-step, or reasoning-heavy tasks, asking the AI to reason through the problem before answering improves output quality. For simple tasks, it adds unnecessary overhead. General guidance ("reason through this carefully") often produces better results than prescribing exact steps - the AI's reasoning frequently exceeds what a human would prescribe.
 
 **Ask the user:**
 
@@ -283,7 +348,7 @@ If the user says no or the task is straightforward, skip this section entirely -
 
 ```xml
 <thinking_directive>
-Before producing your final output, reason through the task in <thinking> tags. Consider: [factors to evaluate]. Then provide the deliverable in <answer> tags.
+Before producing your final output, reason through the task carefully in <thinking> tags. Consider: [factors to evaluate]. Then provide the deliverable in <answer> tags.
 </thinking_directive>
 ```
 
@@ -291,7 +356,7 @@ Before producing your final output, reason through the task in <thinking> tags. 
 
 ### Section 8: Criteria
 
-**What this does:** Defines what "done well" means in testable terms. This gives the AI a checklist to verify against and gives the user a framework to evaluate the output.
+**What this does:** Defines what "done well" means in testable terms. This gives the AI a checklist to verify against and gives the user a framework to evaluate the output. The self-verification step asks the AI to review its own work before submitting - this catches errors reliably, especially in complex tasks.
 
 **Ask the user:**
 
@@ -305,16 +370,20 @@ Before producing your final output, reason through the task in <thinking> tags. 
 ```xml
 <criteria>
 The output is successful when:
-- Can the objective be confirmed as fully addressed with no gaps?
-- Are all required sections/fields present and complete?
-- Does the format match the specification exactly?
-- Is all content within scope - with nothing out of scope included?
-- Can every factual claim be traced to a provided input, or is it explicitly flagged as uncertain? If any claim fails this test, the output fails.
-- Are tone and length within spec?
+- The objective is fully addressed with no gaps
+- All required sections/fields are present and complete
+- The format matches the specification exactly
+- All content is within scope, with nothing out of scope included
+- Every factual claim traces to a provided input, or is explicitly flagged as uncertain
+- Tone and length are within spec
 - [User's task-specific criteria]
 </criteria>
 <self_verification>
-Before finalising your response, review your output against each item in <criteria>. If any criterion is not met, revise before submitting. If you made assumptions not covered in <assumptions>, flag them at the end of your response.
+Before finalising your response, review your output against each item in <criteria>. If any criterion is not met, revise before submitting. Specifically:
+- Re-read the <objective> and confirm the output fully delivers it
+- Check each <hard_rules> item is respected
+- Verify the <format> spec is matched exactly
+- If you made assumptions not covered in <assumptions>, flag them at the end of your response
 </self_verification>
 ```
 
@@ -326,12 +395,17 @@ Once all sections are complete:
 
 1. Assemble the full prompt using the XML structure above, filling in the user's answers.
 2. Review it for internal consistency - make sure constraints don't contradict the objective, format matches the examples, and the criteria align with what was discussed.
-3. **Output the assembled prompt directly in the conversation** so the user can review, copy, and iterate on it immediately. Present it inside a clearly labelled code block (```xml) so the XML tags render cleanly and are easy to copy.
-4. After presenting the prompt, offer to save it as a `.md` file if the user wants a persistent copy, or to refine any section if something doesn't look right.
+3. **Apply the colleague test:** Read the assembled prompt as if you had no context on this task. Flag any instructions that are ambiguous, assume knowledge not provided in `<context>`, or could be interpreted two ways. Resolve these before presenting to the user.
+4. **Match prompt formatting to output formatting.** If the user wants prose output, write the prompt instructions in prose. If they want structured data, structure the prompt accordingly. The style of the prompt influences the style of the response.
+5. **Output the assembled prompt directly in the conversation** so the user can review, copy, and iterate on it immediately. Present it inside a clearly labelled code block (```xml) so the XML tags render cleanly and are easy to copy.
+6. After presenting the prompt, offer to save it as a `.md` file if the user wants a persistent copy, or to refine any section if something doesn't look right.
 
 ## Tips for a great interview
 
 - **Don't over-explain the template.** The user doesn't need a lecture on prompt engineering. Ask the questions, capture the answers, move on.
 - **Use their language.** If they say "deck" instead of "presentation", use "deck" in the prompt.
-- **Default smartly.** If a section genuinely doesn't apply (e.g. no inputs for a creative writing prompt), skip it rather than forcing placeholder text.
+- **Default smartly.** If a section genuinely doesn't apply (e.g. no inputs for a creative writing prompt), skip it rather than forcing placeholder text. Same for document handling - only include it when there are large inputs.
 - **Keep momentum.** The whole interview should feel brisk. If the user gives a one-line answer that's sufficient, accept it and move on.
+- **Don't over-emphasise.** Claude's latest models respond well to normal-weight instructions. Avoid ALL CAPS, "CRITICAL", "YOU MUST", or triple-emphasis patterns in the prompts you build. These can cause the AI to over-apply rules or trigger behaviours too aggressively. State rules clearly and once; that's enough.
+- **Always pair negatives with positives.** When the user gives a "don't do X" constraint, always capture what it should do instead. "Write in flowing prose paragraphs. Do not use bullet points" is far stronger than "Do not use bullet points" alone.
+- **Capture reasoning for every rule.** A constraint with a reason ("no jargon - because the reader is a non-technical executive") is more effective than a bare rule ("no jargon"). The AI applies rules more intelligently when it understands why they exist.

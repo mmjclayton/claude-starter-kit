@@ -148,3 +148,6 @@ These commands are the same on Mac and Windows:
 
 
 If you want to collab or chat email: mmjcodes@gmail.com 
+---
+
+Made by Matt Clayton at [Imagineers](https://imagineersdesign.com), a strategic design and AI studio. If you lead a business and want to use AI in your own work, Imagineers runs [Executive AI Coaching](https://imagineersdesign.com/executive-ai-coaching) for a small group of senior executives, by invitation.
